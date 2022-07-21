@@ -58,7 +58,7 @@ public class RequestBodyJsonController {
     //@RequestBody 에 바로 HelloData 객체 사용 가능(제일 간단)
     @ResponseBody
     @PostMapping("/request-body-json-v3")
-    public String requestBodyJsonV3(@RequestBody HelloData helloData)throws IOException {
+    public String requestBodyJsonV3(@RequestBody HelloData helloData) {
         //json 에서 넘어오는 이름과 객체의 필드 명이 같아야함
         //메세지 컨버터가 이 코드를 대신 실행. HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
         log.info("helloData={}",helloData.toString());
@@ -67,10 +67,10 @@ public class RequestBodyJsonController {
 
     }
 
-    //@ResponseBody 가 있으면 메세지 컨버터가 들어올때도 적용되지만 나갈때도 적용되어 변경된 객체를 Json 으로 반환 할 수도있음
+    //@ResponseBody 가 있으면 메세지 컨버터가 들어올때도 적용되지만 나갈때도 적용되어 변경된 객체를 Json 형식으로 반환 할 수도있음
     @ResponseBody
     @PostMapping("/request-body-json-v4")
-    public HelloData requestBodyJsonV4(@RequestBody HelloData helloData)throws IOException {
+    public HelloData requestBodyJsonV4(@RequestBody HelloData helloData) {
 
         log.info("helloData={}",helloData.toString());
 
